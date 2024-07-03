@@ -3,5 +3,6 @@ WORKDIR /app
 COPY . .
 RUN go get
 RUN go mod download
+RUN go build -o main .
 EXPOSE 4000
-CMD ["go", "run", "main.go"]
+CMD ["./main"]

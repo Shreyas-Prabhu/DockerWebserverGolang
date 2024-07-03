@@ -1,0 +1,17 @@
+version: '2'
+services:
+  my-app:
+    build: .
+    ports:
+      - 4000:4000
+    environment:
+      - REDIS_USERNAME= user
+      - REDIS_PASSWORD= password
+    depends_on:
+      - redis
+
+  redis:
+    image: redis:7.0-alpine
+    ports:
+      - 6379:6379
+    restart: always
